@@ -1,0 +1,102 @@
+Project Title:
+Robustness Evaluation of Domain-Aware PCG Augmentation for Equation Image Classification
+
+Objective:
+Evaluate whether procedural content generation (PCG)-based augmentation improves robustness compared to generic augmentation under mild classroom distribution shift.
+
+Dataset Preparation:
+
+Images captured from whiteboard equations.
+
+Converted from HEIC to PNG.
+
+Converted to grayscale.
+
+Resized to 224×224.
+
+Balanced across four classes:
+
+fraction
+
+inequality
+
+linear
+
+quadratic
+
+Data Split (before augmentation):
+
+70% Train (42 per class)
+
+15% Validation (9 per class)
+
+15% Test (9 per class)
+
+Fixed random seed.
+
+Augmentation Strategies:
+
+Generic Augmentation:
+
+Rotation (±10°)
+
+Translation
+
+Zoom (0.9–1.1)
+
+Brightness adjustment
+
+Gaussian noise
+
+Mild blur
+
+No flipping
+
+PCG Augmentation:
+
+Lighting gradient
+
+Glare simulation
+
+Perspective warp
+
+Eraser smudge
+
+Marker thickness variation
+
+Motion blur
+
+Randomly apply 2–3 per image
+
+Same final size as generic (294 per class)
+
+Experimental Setup:
+
+Same CNN architecture for both models.
+
+Same hyperparameters.
+
+Same number of epochs.
+
+Train two models:
+
+Model_G (Generic)
+
+Model_P (PCG)
+
+Evaluation:
+
+Normal Test Set
+
+Mild Shift Test Set (realistic classroom variation)
+
+Compare:
+
+Accuracy
+
+Robustness drop (Normal – Shifted)
+
+Statistical reliability (optional bootstrap / McNemar)
+
+Research Question:
+Does domain-aware procedural augmentation improve robustness under realistic distribution shift compared to generic augmentation?
